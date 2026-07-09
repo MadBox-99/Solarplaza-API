@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Jobs;
 
 use App\Models\Product;
@@ -26,7 +28,7 @@ class ExportProductToCsv implements ShouldQueue
         $products = Product::get();
         $csvData = [];
         foreach ($products as $product) {
-        $csvData[] = [
+            $csvData[] = [
                 'SKU' => $product->ean_code,
                 'Name' => $product->name,
                 'Price' => $product->price,

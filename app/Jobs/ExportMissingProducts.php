@@ -67,15 +67,15 @@ class ExportMissingProducts implements ShouldQueue
                     //documentumot egy szövegbe | karakterrel elválasztva
                     $document_file .=  $document['url'] . '|' ;
                 }
-                
+
             }
             $product->update(['document' => $document_file]);
-            
+
 
             // Késleltetés a lekérdezési limit elkerülése érdekében
             usleep(600000); // 600000 mikrosekundum = 0.6 másodperc
         }
-        $this->appendToChain(new ExportProductToCsv);
-        
+        $this->appendToChain(new ExportProductToCsv());
+
     }
 }
